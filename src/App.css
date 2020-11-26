@@ -1,38 +1,75 @@
 .App {
   text-align: center;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.nav{
+  background-color: aqua;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.nav-links{
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  justify-content: space-between;
+  text-align: center;
+  background-color: black;
+  color: white;
+  list-style: none;
+}
+
+.nav-links li{
   color: white;
 }
+.items{
+  display: flex;
+  flex-wrap: wrap;
+  padding: 10px 10px;
+  justify-content: space-between;
 
-.App-link {
-  color: #61dafb;
+}
+.sportTitle{
+  color: white;
+}
+img{
+  width: 100%;
+  max-width: 100%;
+}
+.titleSingle{
+  color: red;
+}
+.source{
+  color: black;
+  font-weight: 800;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+@media(min-width:320px){
+  .itemSport{
+    width: 100%;
+    max-width: 100%;
+    border: 1px solid black;
+    background-color:gray;
+    color: white;
+    margin-bottom: 20px;
+   
   }
-  to {
-    transform: rotate(360deg);
+}
+@media(min-width:450px){
+  .itemSport{
+    width: 49%;
+    max-width: 49%;
+  }
+}
+@media(min-width:560px){
+  .itemSport{
+    width: 32%;
+    max-width: 32%;
+  }
+}
+@media(min-width:768px){
+  .itemSport{
+    width: 24%;
+    max-width: 24%; 
+  }
+}
+@media(min-width:992px){
+  .itemSport{
+    width: 19%;
+    max-width: 19%;
   }
 }
