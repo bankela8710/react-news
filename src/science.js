@@ -20,6 +20,8 @@ function Science() {
   }
 
   return (
+    <div>
+      <h1 className="title">Nauka</h1>
     <div className="items">
       {
         itemsScience.articles ?
@@ -33,6 +35,7 @@ function Science() {
             </div>
           }) : ''}
 
+    </div>
     </div>
   );
 }

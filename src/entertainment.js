@@ -19,6 +19,8 @@ function Entertainment() {
 
   }
   return (
+    <div>
+      <h1 className="title">Zabava</h1>
     <div className="items">
       {
         itemsEntertainment.articles ?
@@ -33,6 +35,7 @@ function Entertainment() {
               ;
           }) : ''}
 
+    </div>
     </div>
   );
 }

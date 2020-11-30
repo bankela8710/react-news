@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import { Link, withRouter } from 'react-router-dom';
 
+//var articlesSportHome = [];
 function Sports() {
 
   useEffect(() => {
@@ -15,12 +16,16 @@ function Sports() {
     const dataSport = await fetch('http://newsapi.org/v2/top-headlines?country=rs&category=sports&apiKey=588a1e43d7ab4b69ac5a1bdcfbbbe85c');
     const itemsSport = await dataSport.json();
     const articlesSport = itemsSport.articles;
-    console.log(articlesSport);
+    //articlesSportHome = articlesSport.slice(0,5);
+    //console.log(articlesSportHome);
+    //console.log(articlesSport);
     //  console.log(items);
     setItemsSport(itemsSport);
   }
 
   return (
+  <div>
+    <h1 className="title">Sport</h1>
     <div className="items">
       {
         itemsSport.articles ?
@@ -34,9 +39,11 @@ function Sports() {
 
             </div>
               ;
-          }) : 'nece da radi nesto '}
+          }) : ''}
 
     </div>
+    </div>
+  
   );
 }
 

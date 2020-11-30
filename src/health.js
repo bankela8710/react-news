@@ -3,6 +3,9 @@ import logo from './logo.svg';
 import './App.css';
 import { Link, withRouter } from 'react-router-dom';
 
+
+//let articlesHealthHome = [];
+
 function Health() {
 
   useEffect(() => {
@@ -16,11 +19,15 @@ function Health() {
     const itemsHealth = await dataHealth.json();
     const articlesHealth = itemsHealth.articles;
     console.log(articlesHealth);
+    //articlesHealthHome = articlesHealth.splice(0,5);
+    //console.log(articlesHealthHome);
     //  console.log(items);
     setItemsHealth(itemsHealth);
   }
 
   return (
+    <div>
+      <h1 className="title">Zdravlje</h1>
     <div className="items">
       {
         itemsHealth.articles ?
@@ -35,6 +42,7 @@ function Health() {
               ;
           }) : ''}
 
+    </div>
     </div>
   );
 }
