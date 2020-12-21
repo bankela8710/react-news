@@ -1,36 +1,160 @@
 .App {
   text-align: center;
 }
+body{
+  font-family: 'Quicksand', sans-serif;
+}
 .nav{
-  background-color: aqua;
+  background-image: linear-gradient(90deg,#471629 15%,#712744 49%,#471629 85%);
+  display: flex;
+  align-items: center;
+  padding: 0 40px;
+}
+ul{
+  padding: 0 10px;
+}
+li{
+  list-style: none;
+}
+img{
+  height: 100%;
+  object-fit: cover;
+}
+section.health,
+section.sport,
+section.science{
+  padding: 20px 10px;
+}
+
+.sportArticlesAside .weather-item li{
+ font-size: 15px;
+ font-weight: 500;
+ border-bottom: 5px solid white;
+ 
+}
+@media(max-width:768px){
+  .sportArticlesAside .weather{
+display: none;
+  }
+}
+
+
+.link-logo{
+  color: white;
+  text-transform: uppercase;
+  font-size: 20px;
+  letter-spacing: 10px;
+  font-family: 'Castoro', serif;
+  text-decoration: none;
 }
 .nav-links{
   display: flex;
   justify-content: space-around;
   text-align: center;
-  background-color: black;
+  background-color: 2e2873;
   color: white;
   list-style: none;
   padding: 10px;
   flex-wrap: wrap;
+  width: 60%;
+  
  
 }
-.nav-links li  a:hover{
-  transition: 1s;
-  background-color: aqua;
+.nav-burger{
+  display: none;
 }
+@media screen and ( max-width:992px){
+  body{
+    overflow-x: hidden;
+  }
+  .nav-links{
+    position: absolute;
+    right: 0;
+    top: 62px;
+    background-image: linear-gradient(90deg,#471629 15%,#712744 49%,#471629 85%);
+    display: flex;
+    flex-direction: column;
+    transform: translateX(100%);
+    transition: transform 0.4s ease-in;
+    z-index: 1;
+    ;
+  }
+  
+  .nav-links li{
+    opacity: 0;
+    width: 100%;
+    
+  }
+  .nav-links li a{
+    padding: 10px;
+  }
+  .nav-burger{
+    display: block;
+    position: absolute;
+    right: 15px;
+    cursor: pointer;
+  }
+}
+
+@media screen and (min-width:992px){
+  
+  .nav-links{
+    position: absolute;
+    right: 0;
+
+  }
+} 
+.nav-active{
+  transform: translateX(0%);
+  border: 1px solid 2e2873;
+  background-color: 2e2873;
+}
+
+
 .nav-links li a{
   color: white;
   margin-bottom: 10px;
-  border: 1px solid gray;
-  background-color: gray;
+ 
   border-radius: 5px;
-  text-transform: uppercase;
+  padding: 10px 8px;
   display: block;
   margin-right: 3px;
   text-decoration: none;
+  font-family: 'Poppins', sans-serif;
+  font-weight: bold;
+  letter-spacing: 3px;
+  font-size: 14px;
+  
   
 }
+
+.burger{
+  width: 25px;
+  height: 3px;
+  margin: 3px;
+  background-color: white;
+}
+
+@keyframes navLinkFade{
+  from{
+opacity: 0;
+transform: translateX(50px);
+  }
+  to{
+opacity: 1;
+transform: translateX(0px);
+  }
+}
+.toggle .line1{
+transform: rotate(-45deg) translate(-5px,4px);
+}
+.toggle .line2{
+  opacity: 0;
+}
+.toggle .line3{
+  transform: rotate(45deg) translate(-5px,-4px);
+}
+
 .items{
   display: flex;
   flex-wrap: wrap;
@@ -57,9 +181,18 @@ img{
   border-bottom: 1px solid black;
   
 }
-.itemSport:hover{
+.sportArticle:hover,
+.health .sectionTwo article:hover,
+.health .sectionFive article:hover,
+.science .sectionTwo article:hover,
+.science .sectionFive article:hover,
+.science .sportArticlesAsideNews div:hover{
   transition: 1s;
   scale: 0.9;
+}
+
+.itemSport:hover h3{
+  color: aqua;
 }
 @media(min-width:320px){
   .itemSport{
@@ -106,21 +239,527 @@ span{
   display: block;
   margin-bottom: 5px;
 }
-.portals{
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
+
+.footer{
+  background-color: #05131e;
+  padding: 20px 40px;
 }
-.portals a{
+.footer-icons{
+  text-align: left;
+  width: 40%;
+}
+.footer-icons h3{
+  padding-bottom: 10px;
+  color: white;
+}
+.footer-icons svg {
+  color:white;
+  margin-right: 15px;
+  font-size: 25px;
+  
+}
+.itemSport{
+  position: relative;
+  height: 400px;
+}
+
+.itemSport img{
+  position: absolute;
+  left:  0;
+  bottom: 0;
+  height: 135px;
+}
+@media(min-width:768px){
+  .sportArticleDescription{
+    background-image: linear-gradient(90deg,#471629 15%,#712744 49%,#471629 85%);
+    color: white;
+  }
+  .sectionFiveDescription{
+    background-image: linear-gradient(90deg,#471629 15%,#712744 49%,#471629 85%);
+    color: white;
+  }
+}
+
+.sportArticlesAside .link{
+  color: white;
+  
+}
+.sportArticlesWrapper .link{
+  color: black;
   text-decoration: none;
 }
-footer{
-  background-color: gray;
-  padding: 10px;
+
+
+/*****************************  BUTTON TOP    ***********************************/
+
+.scrollTop{
+  position: fixed; 
+  right: 20px;
+  width: 40px;
+  height: 40px;
+  bottom: 50px;
+  align-items: center;
+  border-radius: 50%;
+  justify-content: center;
+  z-index: 1000;
+  cursor: pointer;
+  animation: fadeIn 0.3s;
+  transition: opacity 0.1s;
+  opacity: 0.9;
+  background-color: #471629;
+  color: white;
+  
+}
+.scrollToptn:hover{
+  opacity: 1;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0.5;
+  }
 }
 
 
-.portals a:hover{
-  transition: 1s;
-  scale: 1.2;
+
+/****************************  SPORT START  **************************************/
+.aside-more-tittle{
+  margin-left: 20px;
+  text-align: left;
+}
+.sportArticlesAside{
+  background-image: linear-gradient(90deg,#471629 15%,#712744 49%,#471629 85%);
+  color: white;
+  padding: 10px 0;
+}
+.sportArticlesAside ul{
+  padding: 0;
+}
+.sportArticlesAside ul li{
+  padding: 10px 0;
+}
+
+@media(max-width:576px){
+  .sport .sportArticleWrapper .sportArticleImage{
+    height: 200px;
+  }
+}
+@media(min-width:576px){
+  .sport .sportArticleWrapper .sportArticleImage{
+    height: 300px;
+  }
+}
+
+.sectionTwo{
+  display: block;
+  border-top: 2px solid #471629;
+  border-bottom: 2px solid #471629;
+  padding: 10px 0;
+}
+.sportArticlesAside{
+  background-image: linear-gradient(90deg,#471629 15%,#712744 49%,#471629 85%);
+  color: white;
+  padding: 10px 0;
+}
+.sectionThree{
+  
+  padding: 10px 0;
+}
+.sectionFour{
+  border-top: 2px solid #471629;
+  border-bottom: 2px solid #471629;
+}
+.sectionFive{
+  border-bottom: 2px solid #471629;
+  width: 100%;
+  padding: 10px 0;
+}
+.sectionFive .sportArticle{
+  width: 100%;
+}
+@media(min-width:576px){
+  .sectionThree{
+    display: flex;
+    justify-content: space-between;
+   width: 100%;
+   max-width: 100%;
+    
+  }
+  .sectionThree .sportArticle{
+  width: 48%;
+  }
+  .sectionThree .sportArticle .sportArticleImage{
+    height: 200px;
+  }
+  .sectionThree .sportArticle .sportArticleImage img{
+    height: 100%;
+  }
+  .sectionFour{
+    
+    padding: 10px;
+  }
+  .sectionFour > div{
+    display: flex;
+    justify-content: space-between;
+  }
+  .sectionFour ul{
+    border-right: 1px solid grey;
+    width: 33%;
+   
+  }
+  .sectionFour ul li{
+    padding: 0 20px 0 0;
+  }
+  .sectionFour ul:last-of-type{
+    border-right: none;
+  }
+ .sport .sectionFive > div {
+   display: flex;
+   justify-content: space-between;
+   flex-wrap: wrap;
+ }
+ .sport .sectionFive .sportArticle:first-of-type{
+   width: 100%;
+   
+ }
+ .sport .sectionFive .sportArticle{
+   width: 45%;
+ }
+ .sectionFive .sportArticleImage{
+   height: 200px;
+ }
+ .sectionFive .sportArticleImage img{
+  height: 100%;
+}
+}
+
+
+.sportArticlesWrapperOneAside{
+  border-bottom: 1px solid #471629;
+  border-top: 1px solid #471629;
+  margin-bottom: 10px;
+}
+
+@media(min-width:768px){
+  .sport{
+    display: flex;
+    justify-content: space-between;
+  }
+  .sportArticle:first-of-type{
+    width: 100%;
+    max-width:100%;
+    height: 300px;
+  }
+  .sportArticleImage:first-of-type{
+    height: 300px;
+    
+  }
+ 
+  .sport .sectionThree .sportArticle{
+    width: 50%;
+    }
+  .sportArticlesWrapper{
+    display: flex;
+    flex-wrap: wrap;
+    
+    justify-content: space-between;
+    width: 80%;
+  }
+  .sectionOne{
+    display:flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+  .sectionOne .sportArticle:first-of-type {
+    width: 100%;
+  }
+  .sectionOne .sportArticle{
+    width: 48%;
+  }
+  .sportArticle{
+    
+    position: relative;
+    margin-bottom: 15px;
+  }
+  .sportArticleImage{
+    height: 200px;
+  }
+  .sportArticleImage img{
+    height: 100%;
+  }
+  .sportArticleDescription{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    background-color: grey;
+    opacity: 0.8;
+    width: 100%;
+  }
+  .sportArticleDescription h3{
+    font-size: 13px;
+  }
+  .sportArticlesAside{
+    width: 18%;
+    max-width: 18%;
+   background-color: grey;
+  }
+  
+  .sportArticlesAside ul{
+    text-align: center;
+    align-items: center;
+    padding: 10px 20px;
+  }
+  .sportArticlesAside li{
+    list-style: none;
+    border-bottom: 1px solid white;
+    text-align: center;
+  }
+  .sectionTwo{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .sectionTwo .sportArticlesWrapperOneAside{
+    width: 48%;
+    max-width: 48%;
+    border-bottom: none;
+    border-top: none;
+  }
+  .sectionTwo .sportArticlesWrapperOne{
+    width: 48%;
+    max-width: 48%;
+  }
+  .sectionFive .sportArticle{
+    width: 45%;
+  }
+  .sport .sectionThree .sportArticle{
+    width: 45%;
+    max-width: 45%;
+  }
+
+}
+/************************************  SPORT END  ************************************/
+
+
+/*******************************    HEALTH START   *************************************/
+
+
+@media(min-width:320px){
+  .health .sportArticleImage{
+    height: 200px;
+  }
+  .health .sportArticleImage img{
+    height: 100%;
+  }
+  .health .health-image{
+    height: 200px;
+    width: 100%;
+    max-width: 100%;
+  }
+  .health .health-image img{
+    height: 100%;
+  }
+  .health .sectionFiveImage{
+    height: 200px;
+  }
+  .health .sectionFiveImage img{
+    height: 100%;
+  }
+  .sectionTwo .health-image{
+    width: 100%;
+  }
+  .sectionTwo .health-description{
+    width: 100%;
+  }
+}
+@media(min-width:576px){
+  .health .sportArticleImage{
+    height: 300px;
+  }
+  .health .sportArticleImage img{
+    height: 100%;
+  }
+  
+  .health .sectionFiveImage{
+    height: 300px;
+  }
+  .health .sectionFiveImage img{
+    height: 100%;
+  }
+  
+}
+
+.sectionTwo .health-wrapper{
+  padding: 10px 0;
+  border-bottom: 1px solid #471629;
+}
+@media(min-width:576px){
+.sectionTwo .health-wrapper{
+  display: flex;
+  height: 200px;
+}
+.sectionTwo .health-image{
+  width: 35%;
+}
+.sectionTwo .health-image img{
+  height: 100%;
+  width: 100%;
+}
+.sectionTwo .health-description{
+  text-align: left;
+  padding: 20px;
+  width: 64%;
+}
+.sectionFive > div{
+  display: flex;
+  justify-content: space-between;
+}
+.sectionFive article{
+  width: 48%;
+  max-width: 48%;
+}
+.sectionFiveWrapper{
+  position: relative;
+}
+.sectionFiveDescription{
+  position: absolute;
+  bottom: 0;
+  background-color: grey;
+  opacity: 0.8;
+  width: 100%;
+}
+}
+@media(min-width:768px){
+  .health{
+    display: flex;
+    justify-content: space-between;
+  }
+  .health .sportArticlesWrapper{
+    width: 70%;
+    max-width: 70%;
+  }
+  .health .sportArticlesAside{
+    width: 29%;
+    max-width: 29%;
+  }
+  .health .sportArticle{
+    width: 48%;
+    max-width: 48%;
+  }
+  .health .sportArticle:first-of-type{
+    width: 100%;
+    max-width: 100%;
+  }
+.health .sectionTwo .sportArticlesWrapperOneAside{
+  width: 100%;
+max-width: 100%;
+border-top: 2px solid grey;
+border-bottom: 2px solid grey;
+}
+.health .sectionTwo .sportArticlesWrapperOneAside .sportArticle{
+  width: 100%;
+  max-width: 100%;
+
+}
+}
+/****************************   HEALTH END    ***********************************/
+
+/****************************   SCIENCE   START   ********************************/
+@media(max-width:576px){
+  .science img{
+    height: 200px;
+  }
+}
+@media(min-width:576px){
+  .science img{
+    height: 300px;
+  }
+}
+
+
+.science .sportArticlesAsideNews h3{
+  text-align: left;
+}
+.science .sportArticlesAsideNews li{
+  border-bottom: none;
+}
+.science .sportArticlesAsideNews{
+  background-color:#05131e;
+  padding: 10px;
+  color:white;
+  border-top:2px solid #05131e;
+  border-bottom:2px solid #05131e;
+}
+@media(min-width:768px){
+  .science{
+    display: flex;
+    justify-content: space-between;
+  }
+  .science .sportArticlesWrapper{
+    width: 70%;
+    max-width: 70%;
+  }
+  .science .sportArticlesAside{
+    width: 29%;
+    max-width: 29%;
+  }
+  .science .sportArticlesAsideNews img{ 
+    height: 100px;
+  }
+}
+
+/********************************     SINGLE ITEM START         *************************************/
+.single-item-aside{
+  background-image: linear-gradient(90deg,#471629 15%,#712744 49%,#471629 85%);
+}
+.single-item{
+  margin: 20px 10px;
+}
+.single-item h1{
+  text-align: left;
+}
+.single-item-social{
+  text-align: left;
+}
+.single-item-social p{
+  font-weight: 500;
+ 
+}
+.single-item-social p svg{
+  margin-left: 20px;
+  font-size: 20px;
+}
+.link-social{
+  text-decoration: none;
+  color: #471629;
+}
+.single-item-source{
+  border-bottom: 3px solid #471629;
+  font-size: 18px;
+  font-weight: 800;
+  padding: 0 0 10px 0;
+  width: 20%;
+  text-align: left;
+}
+.single-item-aside{
+  color: white;
+}
+@media(min-width:768px){
+  .single-item{
+    display: flex;
+    justify-content: space-between;
+   }
+   .single-item-content{
+   width: 70%;
+   }
+   .single-item-content img{
+     height: 300px;
+   }
+   .single-item-aside{
+     width: 29%;
+   }
 }

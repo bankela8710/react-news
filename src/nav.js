@@ -3,60 +3,93 @@ import './App.css';
 import { Link, NavLink } from 'react-router-dom';
 import GetCurrentDate from './utils';
 
-const apiSport= '588a1e43d7ab4b69ac5a1bdcfbbbe85c';
+const apiSport = '588a1e43d7ab4b69ac5a1bdcfbbbe85c';
 
 function Nav() {
+
+  const navSlide = () => {
+    const nav = document.querySelector('.nav-links');
+    const burger = document.querySelector('.nav-burger');
+    const navLinks = document.querySelectorAll('.nav-links li');
+    //burger.addEventListener('click', ()=>{    
+    nav.classList.toggle('nav-active');
+    //animate for links
+    navLinks.forEach((link, index) => {
+      if (link.style.animation) {
+        link.style.animation = "";
+      } else {
+        link.style.animation = `navLinkFade 0.5s ease forwards ${index / 7 + 0.5}s`;
+      }
+    })
+    //})
+    burger.classList.toggle('toggle');
+  }
 
   const styleLink = {
     color: 'while'
   };
   return (
+
     <nav className="nav">
-      <h3><p>Sve vesti na jednom mestu</p>
-        <p>sa svih portala u Srbiji</p>
-        <p style={{ textTransform: 'uppercase' }}>najnovije vesti za : <GetCurrentDate /></p>
-      </h3>
+      <div className="nav-logo">
+        <Link className="link-logo" to="/">
+          <h4>logo</h4>
+        </Link>
+      </div>
+
       <ul className="nav-links">
         <li> <NavLink to='/sport' activeStyle={
-          { color: 'aqua' }
+          { borderBottom: '3px solid white' }
         }>
           Sport
         </NavLink>
         </li>
         <li> <NavLink to='/health' activeStyle={
-          { color: 'aqua' }
+          { borderBottom: '3px solid white' }
         } >
           Zdravlje
         </NavLink>
         </li>
         <li><NavLink to='/science' activeStyle={
-          { color: 'aqua' }
+          { borderBottom: '3px solid white' }
         }>
           Nauka
         </NavLink>
         </li>
         <li><NavLink to='/entertainment' activeStyle={
-          { color: 'aqua' }
+          { borderBottom: '3px solid white' }
         }>
           Zabava
         </NavLink>
         </li>
         <li> <NavLink to='/business' activeStyle={
-          { color: 'aqua' }
+          { borderBottom: '3px solid white' }
         }>
           Biznis
         </NavLink>
         </li>
         <li >
           <NavLink to='/technology' activeStyle={
-          { color: 'aqua' }
-        }  >
+            { borderBottom: '3px solid white' }
+          }  >
             Tehnologija
         </NavLink>
         </li>
       </ul>
+      <div className="nav-burger" onClick={navSlide}>
+        <div className="burger line1"></div>
+        <div className="burger line2"></div>
+        <div className="burger line3"></div>
+      </div>
     </nav>
+
   );
+
+
+
 }
+
+
+
 
 export default Nav;
