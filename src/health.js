@@ -4,6 +4,11 @@ import logo from './logo.svg';
 import './App.css';
 import { Link } from 'react-router-dom';
 import PortalLinks from './portalLink';
+import WidgetLead from './widgetLead';
+import WidgetLeadSecond from './widgetLeadSecond';
+import WidgetLeadUl from './widgetLeadUl';
+import WidgetLeadBottom from './widgetLeadBottom';
+import ClipLoader from "react-spinners/ClipLoader";
 
 
 //let articlesHealthHome = [];
@@ -15,6 +20,7 @@ function Health() {
   }, []);
 
   const [itemsHealth, setItemsHealth] = useState([]);
+  const [loadSpinner, setLoadSpinner] = useState(true);
 
   const fetchItemsHealth = async () => {
     const dataHealth = await fetch('http://newsapi.org/v2/top-headlines?country=rs&category=health&apiKey=588a1e43d7ab4b69ac5a1bdcfbbbe85c');
@@ -24,10 +30,19 @@ function Health() {
     //articlesHealthHome = articlesHealth.splice(0,5);
     //console.log(articlesHealthHome);
     //  console.log(items);
+    if (articlesHealth !== undefined) {
+      // console.log('imamo article')
+      setLoadSpinner(false);
+    } else {
+      setLoadSpinner(true);
+      // console.log('nemamo article uslov za spinner');
+
+    }
     setItemsHealth(itemsHealth);
   }
 
   return (
+    loadSpinner ? <ClipLoader loading={loadSpinner} size={150} /> :
     <section className="health">
       <div className="sportArticlesWrapper">
         {
@@ -35,56 +50,37 @@ function Health() {
             itemsHealth.articles.map((article, index) => {
               if (index < 5) {
                 return (
-                  <article className="sportArticle">
-                    <Link className="link" to={{pathname:`/health/${article.title}`, article}}>
-                    <div className="sportArticleWrapper">
-                      <div className="sportArticleImage">
-                        <img src={article.urlToImage} />
-                      </div>
-                      <div className="sportArticleDescription">
-                        <p>{article.source.name}</p>
-                        <h3>{article.title}</h3>
-                      </div>
-                    </div>
+                  <div className="sportArticle">
+                    <Link className="link" to={{ pathname: `/health/${article.title}`, article }}>
+                      <WidgetLead imagePath={article?.urlToImage} name={article.source?.name} title={article?.title} />
                     </Link>
-                  </article>
+                  </div>
                 )
               } else if (index >= 4 && index < 8) {
                 console.log('od 4 do 8', article)
               }
-
-
             }) : ''
-
         }
+
+
         <div className="sectionTwo">
           <div className="">
             {
               itemsHealth.articles ?
                 itemsHealth.articles.map((article, index) => {
-                  if (index >=5 && index < 9) {
+                  if (index >= 5 && index < 9) {
                     return (
-                      <article className="">
-                        <Link className="link" to={{pathname:`/health/${article.title}`, article}}>
-                      <div className="health-wrapper">
-                        <div className="health-image">
-                          <img src={article.urlToImage} />
-                        </div>
-                        <div className="health-description">
-                          <p>{article.source.name}</p>
-                          <h3>{article.title}</h3>
-                        </div>
-                      </div>
+                      <Link className="link" to={{ pathname: `/health/${article.title}`, article }}>
+                        <WidgetLeadSecond imagePath={article?.urlToImage} name={article.source?.name} title={article?.title} />
                       </Link>
-                    </article>
                     )
                   }
                 }) : ""
             }
           </div>
-          
         </div>
-       
+
+
         <div className="sectionFour">
           <div>
             {
@@ -93,38 +89,30 @@ function Health() {
                   if (index >= 9 && index < 12) {
                     return (
                       <ul>
-                        <Link className="link" to={{pathname:`/health/${article.title}`, article}}>
-                        <li>{article.title}</li>
+                        <Link className="link" to={{ pathname: `/health/${article.title}`, article }}>
+                          <WidgetLeadUl title={article?.title} />
                         </Link>
                       </ul>
-
                     )
                   }
                 }) : ""
-
             }
           </div>
         </div>
+
+
         <div className="sectionFive">
           <div>
             {
               itemsHealth.articles ?
                 itemsHealth.articles.map((article, index) => {
-                  if (index >= 12 && index <14 ) {
+                  if (index >= 12 && index < 14) {
                     return (
-                      <article className="">
-                        <Link className="link" to={{pathname:`/health/${article.title}`, article}}>
-                        <div className="sectionFiveWrapper">
-                          <div className="sectionFiveImage">
-                            <img src={article.urlToImage} />
-                          </div>
-                          <div className="sectionFiveDescription">
-                            <p>{article.source.name}</p>
-                            <h3>{article.title}</h3>
-                          </div>
-                        </div>
-                        </Link>
-                      </article>
+                      <article className="widget-bottom-wrapper">
+                      <Link className="link" to={{ pathname: `/health/${article.title}`, article }}>
+                        <WidgetLeadBottom imagePath={article?.urlToImage} name={article.source?.name} title={article?.title} />
+                      </Link>
+                    </article>
                     )
                   }
                 }) : ""
@@ -132,8 +120,10 @@ function Health() {
           </div>
         </div>
       </div>
+
+
       <div className="sportArticlesAside">
-      <h3><Weather /></h3>
+        <h3><Weather /></h3>
         <h3>Procitajte jos.....</h3>
         {
           itemsHealth.articles ?
@@ -141,15 +131,13 @@ function Health() {
               if (index >= 14 && index < itemsHealth.articles.length) {
                 return (
                   <ul>
-                    <Link className="link" to={{pathname:`/health/${article.title}`, article}}>
-                    <li>{article.title}</li>
+                    <Link className="link" to={{ pathname: `/health/${article.title}`, article }}>
+                      <WidgetLeadUl title={article?.title} />
                     </Link>
                   </ul>
-    
                 )
               }
             }) : ""
-
         }
       </div>
     </section>

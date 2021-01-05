@@ -22,7 +22,7 @@ function Weather() {
         //const dataWeather = await fetch('https://api.openweathermap.org/data/2.5/weather?id=3197622&appid=001c5a286fb2252c322a7d779e228af4');
         console.log(dataWeather, 'data response');
         const itemsWeather = await dataWeather.json();
-        console.log(itemsWeather, 'sportArticlesAside data response');
+        console.log(itemsWeather, 'weather data response');
         setItemsWeather(itemsWeather);
     }
 
@@ -30,8 +30,8 @@ function Weather() {
         <div className="weather">
             <h3>Vremenska prognoza</h3>
             <ul className="weather-item">
-                <li>{itemsWeather.name}:{(itemsWeather.main?.temp - 273.15).toFixed(0)}&deg;C</li>
-
+    <li>{itemsWeather.name}:<strong>{(itemsWeather.main?.temp - 273.15).toFixed(0)}</strong>&deg;C</li>
+    
             </ul>
         </div>
     );

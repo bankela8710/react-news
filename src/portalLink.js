@@ -20,7 +20,7 @@ function PortalLinks() {
           portals.map((portal, index) => {
             //console.log(portal)
             return (
-              <div className="portals-wrapper">
+              <div key={index} className="portals-wrapper">
                 <a href={portal.url}>{portal.name}</a>
               </div>
 

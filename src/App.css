@@ -246,7 +246,7 @@ span{
 }
 .footer-icons{
   text-align: left;
-  width: 40%;
+  width: 100%;
 }
 .footer-icons h3{
   padding-bottom: 10px;
@@ -407,7 +407,7 @@ span{
   }
   .sectionFour ul{
     border-right: 1px solid grey;
-    width: 33%;
+    
    
   }
   .sectionFour ul li{
@@ -426,7 +426,7 @@ span{
    
  }
  .sport .sectionFive .sportArticle{
-   width: 45%;
+   width: 48%;
  }
  .sectionFive .sportArticleImage{
    height: 200px;
@@ -542,6 +542,17 @@ span{
   }
 
 }
+@media(min-width: 768px){
+
+  .sectionThree-sport{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+  .sectionThree-sport a.link{
+    width: 48%;
+  }
+}
 /************************************  SPORT END  ************************************/
 
 
@@ -618,10 +629,7 @@ span{
   display: flex;
   justify-content: space-between;
 }
-.sectionFive article{
-  width: 48%;
-  max-width: 48%;
-}
+
 .sectionFiveWrapper{
   position: relative;
 }
@@ -762,4 +770,36 @@ border-bottom: 2px solid grey;
    .single-item-aside{
      width: 29%;
    }
+}
+
+.modal-wrapper{
+  position: absolute;
+  top: 79px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  border: 1px solid #05131e;
+  background-color: #05131e;
+  color: white;
+  z-index: 10;
+  width: 80%;
+  padding: 0 10px;
+}
+.modal-button{
+  display: flex;
+  flex-direction: column;
+}
+.modal-button button:first-of-type{
+  margin-bottom: 10px;
+}
+.hide-modal{
+ display: none;
+}
+
+
+@media(min-width:576px){
+.sectionFive .widget-bottom-wrapper{
+  width: 48%;
+}
 }

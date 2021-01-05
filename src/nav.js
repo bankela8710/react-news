@@ -3,6 +3,7 @@ import './App.css';
 import { Link, NavLink } from 'react-router-dom';
 import GetCurrentDate from './utils';
 
+
 const apiSport = '588a1e43d7ab4b69ac5a1bdcfbbbe85c';
 
 function Nav() {
@@ -33,7 +34,7 @@ function Nav() {
     <nav className="nav">
       <div className="nav-logo">
         <Link className="link-logo" to="/">
-          <h4>logo</h4>
+         <h4><img src={'./logo.jpg'} /></h4>
         </Link>
       </div>
 
