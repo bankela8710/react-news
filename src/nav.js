@@ -15,16 +15,17 @@ function Nav() {
     //burger.addEventListener('click', ()=>{    
     nav.classList.toggle('nav-active');
     //animate for links
-    navLinks.forEach((link, index) => {
-      if (link.style.animation) {
-        link.style.animation = "";
-      } else {
-        link.style.animation = `navLinkFade 0.5s ease forwards ${index / 7 + 0.5}s`;
-      }
-    })
+    // navLinks.forEach((link, index) => {
+    //   if (link.style.animation) {
+    //     link.style.animation = "";
+    //   } else {
+    //     link.style.animation = `navLinkFade 0.3s ease forwards ${index / 7 + 0.1}s`;
+    //   }
+    // })
     //})
     burger.classList.toggle('toggle');
   }
+  
 
   const styleLink = {
     color: 'while'
@@ -34,12 +35,12 @@ function Nav() {
     <nav className="nav">
       <div className="nav-logo">
         <Link className="link-logo" to="/">
-         <h4><img src={'./logo.jpg'} /></h4>
+         <img src={process.env.PUBLIC_URL + '/images/logo.png'}/>
         </Link>
       </div>
 
-      <ul className="nav-links">
-        <li> <NavLink to='/sport' activeStyle={
+      <ul className="nav-links" onClick={navSlide}>
+        <li > <NavLink to='/sport' activeStyle={
           { borderBottom: '3px solid white' }
         }>
           Sport

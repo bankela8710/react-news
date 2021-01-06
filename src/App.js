@@ -33,7 +33,8 @@ function App() {
       <Router>
       <header className="App-header">
        <Nav />
-       
+       <GetCurrentDate />
+
        <Switch>
        
        <Route path="/sport" exact component={Sports} />

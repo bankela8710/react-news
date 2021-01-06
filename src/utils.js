@@ -12,7 +12,7 @@ import './App.css';
     
     console.log(weekDays, 'dan koji je')
     
-    return `${weekDays[day]}${" "}${date}/${month<10?`0${month}`:`${month}`}/${year} `
+    return <div className="current-date">{`${weekDays[day]}${" "}${date}/${month<10?`0${month}`:`${month}`}/${year} `}</div>
     }
   //  console.log(GetCurrentDate,);
 
