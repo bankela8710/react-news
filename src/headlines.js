@@ -14,7 +14,7 @@ import WidgetLeadBottom from './widgetLeadBottom';
 
 
 function Headlins() {
-
+  
   useEffect(() => {
     fetchItemsHeadlins();
   }, []);
@@ -29,7 +29,8 @@ function Headlins() {
     const itemsHeadlins = await dataHeadlins.json();
     const articlesHeadlins = itemsHeadlins.articles;
     // setuj storage sa article-ima
-    console.log('headlines provera', articlesHeadlins);
+    //console.log('headlines provera', articlesHeadlins);
+
     if (articlesHeadlins !== undefined) {
       // console.log('imamo article')
       setLoadSpinner(false);
@@ -50,7 +51,7 @@ function Headlins() {
       console.log('pusti ga, imamo ga u storage');
       return setUserToStorage(true);
     } else {
-      console.log('nemamo ga, ide modal ide set storage-a');
+      //console.log('nemamo ga, ide modal ide set storage-a');
       //localStorage.setItem('userName', 'Petar Petrovic');
       return setUserToStorage(false);
 
@@ -73,7 +74,8 @@ function Headlins() {
   return (
     loadSpinner ? <ClipLoader loading={loadSpinner} size={150} />
       :
-      <section className="science headlins">
+      
+      <section className="science headlins container-wrapper">
         <div className="sportArticlesWrapper">
           <div className="sectionOne">
             {
@@ -81,14 +83,14 @@ function Headlins() {
                 itemsHeadlins.articles.map((article, index) => {
                   if (index < 3) {
                     return (
-                      <div className="sportArticle">
+                      <div className="sportArticle" key={index}>
                         <Link className="link" to={{ pathname: `/headlines/${article.title}`, article }}>
                           <WidgetLead imagePath={article?.urlToImage} name={article.source?.name} title={article?.title} />
                         </Link>
                       </div>
                     )
                   } else if (index >= 3 && index < 8) {
-                    console.log('od 4 do 8', article)
+                   // console.log('od 4 do 8', article)
                   }
                 }) : ''
             }
@@ -102,7 +104,7 @@ function Headlins() {
                   itemsHeadlins.articles.map((article, index) => {
                     if (index >= 3 && index < 9) {
                       return (
-                        <Link className="link" to={{ pathname: `/headlines/${article.title}`, article }}>
+                        <Link key={index}  className="link" to={{ pathname: `/headlines/${article.title}`, article }}>
                           <WidgetLeadSecond imagePath={article?.urlToImage} name={article.source?.name} title={article?.title} />
                         </Link>
                       )
@@ -120,8 +122,8 @@ function Headlins() {
                   itemsHeadlins.articles?.map((article, index) => {
                     if (index >= 9 && index < 12) {
                       return (
-                        <ul>
-                          <Link className="link" to={{ pathname: `/headlines/${article.title}`, article }}>
+                        <ul key={index}>
+                          <Link  className="link" to={{ pathname: `/headlines/${article.title}`, article }}>
                             <WidgetLeadUl title={article?.title} />
                           </Link>
                         </ul>
@@ -140,7 +142,7 @@ function Headlins() {
                   itemsHeadlins.articles.map((article, index) => {
                     if (index >= 12 && index < 14) {
                       return (
-                        <article className="widget-bottom-wrapper">
+                        <article key={index} className="widget-bottom-wrapper">
                           <Link className="link" to={{ pathname: `/headlines/${article.title}`, article }}>
                             <WidgetLeadBottom imagePath={article?.urlToImage} name={article.source?.name} title={article?.title} />
                           </Link>
@@ -165,7 +167,7 @@ function Headlins() {
                 itemsHeadlins.articles?.map((article, index) => {
                   if (index >= 14 && index < itemsHeadlins.articles.length) {
                     return (
-                      <Link className="link" to={{ pathname: `/headlines/${article.title}`, article }}>
+                      <Link key={index} className="link" to={{ pathname: `/headlines/${article.title}`, article }}>
                         <WidgetLeadAside imagePath={article?.urlToImage} title={article?.title} />
                       </Link>
                     )
@@ -176,6 +178,8 @@ function Headlins() {
         </div>
         {!disableModal ? <Modal handleModalClick={(event) => handleModalEvents(event)} /> : null}
       </section>
+      
+     
   );
 }
 

@@ -3,11 +3,15 @@ import Weather from './weather';
 import { FaFacebook, FaTwitter, FaEnvelope } from 'react-icons/fa';
 import {Link} from 'react-router-dom';
 import './App.css';
+import Health from './health';
 
 function HealthItem(props) {
-    console.log(props)
+   // console.log(props)
     const article = props.location.article;
-    console.log(article, 'this is article');
+    //console.log(article, 'this is article');
+    if(article === undefined){
+        return   <Health />
+       }
     return (
        
         <div className="single-item">

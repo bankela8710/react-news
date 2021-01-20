@@ -44,7 +44,7 @@ function Sports() {
           {
             itemsSport.articles ?
               itemsSport.articles.map((article, index) => {
-                console.log(article)
+                //console.log(article)
                 if (index < 3) {
                   return (
                     // <article key={index} className="sportArticle">
@@ -60,14 +60,14 @@ function Sports() {
                     //   </div>
                     //   </Link>
                     // </article>
-                    <div className="sportArticle">
+                    <div className="sportArticle" key={index}>
                     <Link className="link" to={{pathname:`/sport/${article.title}`, article }}>
                     <WidgetLead imagePath={article?.urlToImage} name={article.source?.name} title={article?.title} />
                     </Link>
                     </div>
                   )
                 } else if (index >= 4 && index < 8) {
-                  console.log('od 4 do 8', article)
+                 // console.log('od 4 do 8', article)
                 }
 
 
@@ -82,7 +82,7 @@ function Sports() {
                 itemsSport.articles.map((article, index) => {
                   if (index >= 3 && index < 6) {
                     return (
-                      <ul>
+                      <ul key={index}>
                       <Link className="link" to={{ pathname: `/sport/${article.title}`, article }}>
                       <WidgetLeadUl title={article?.title} />
                       </Link>
@@ -111,7 +111,7 @@ function Sports() {
                       //   </div>
                       //   </Link>
                       // </article>
-                      <Link className="link" to={{pathname:`/sport/${article.title}`, article }}>
+                      <Link key={index} className="link" to={{pathname:`/sport/${article.title}`, article }}>
                       <WidgetLead imagePath={article?.urlToImage} name={article.source?.name} title={article?.title} />
                       </Link>
                     )
@@ -140,7 +140,7 @@ function Sports() {
                     //   </Link>
                     // </article>
                     
-                    <Link className="link" to={{pathname: `/sport/${article.title}`, article }}>
+                    <Link key={index} className="link" to={{pathname: `/sport/${article.title}`, article }}>
                     <WidgetLead imagePath={article?.urlToImage} name={article.source?.name} title={article?.title} />
                     </Link>
                   
@@ -156,7 +156,7 @@ function Sports() {
                 itemsSport.articles?.map((article, index) => {
                   if (index > 8 && index <= 11) {
                     return (
-                      <ul>
+                      <ul key={index}>
                       <Link className="link" to={{ pathname: `/sport/${article.title}`, article }}>
                       <WidgetLeadUl title={article?.title} />
                       </Link>
@@ -187,7 +187,7 @@ function Sports() {
                       //   </div>
                       //   </Link>
                       // </article>
-                      <div className="sportArticle">
+                      <div className="sportArticle" key={index}>
                       <Link className="link" to={{pathname: `/sport/${article.title}`, article }}>
                       <WidgetLead imagePath={article?.urlToImage} name={article.source?.name} title={article?.title} />
                       </Link>
@@ -207,7 +207,7 @@ function Sports() {
             itemsSport.articles?.map((article, index) => {
               if (index > 11 && index <= 16) {
                 return (
-                  <ul>
+                  <ul key={index}>
                     <Link className="link" to={{ pathname: `/sport/${article.title}`, article }}>
                       <WidgetLeadUl title={article?.title} />
                     </Link>

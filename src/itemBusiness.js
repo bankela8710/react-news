@@ -4,13 +4,17 @@ import { FaFacebook, FaTwitter, FaEnvelope } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
 import './App.css';
+import Business from './business';
 
 function BusinessItem(props) {
     //console.log('proveri location da li je undefned', props.location)
     //console.log('article location', props.location?.article)
     const articleItem = props.location.article;
 
-    console.log(articleItem, 'this is article');
+   // console.log(articleItem, 'this is article');
+   if(articleItem === undefined){
+    return   <Business />
+   }
     
     return (
         <div className="single-item">

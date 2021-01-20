@@ -10,7 +10,7 @@ import './App.css';
     let day = newDate.getDay();
     let weekDays = ['nedelja','ponedeljak','utorak','sreda','cetvrtak','petak','subota'];
     
-    console.log(weekDays, 'dan koji je')
+    //console.log(weekDays, 'dan koji je')
     
     return <div className="current-date">{`${weekDays[day]}${" "}${date}/${month<10?`0${month}`:`${month}`}/${year} `}</div>
     }

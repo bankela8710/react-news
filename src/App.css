@@ -1,5 +1,7 @@
 .App {
   text-align: center;
+  max-width: 1200px;
+  margin: 0 auto;
 
 }
 body{
@@ -9,7 +11,7 @@ body{
   background-image: linear-gradient(90deg,#471629 15%,#712744 49%,#471629 85%);
   display: flex;
   align-items: center;
-  padding: 10px 40px;
+  padding: 0 0 0 40px;
 }
 ul{
   padding: 0 10px;
@@ -24,7 +26,7 @@ img{
 section.health,
 section.sport,
 section.science{
-  padding: 20px 10px;
+  padding: 10px 0px;
 }
 
 .sportArticlesAside .weather-item li{
@@ -47,6 +49,7 @@ display: none;
   letter-spacing: 10px;
   font-family: 'Castoro', serif;
   text-decoration: none;
+  display: block;
 }
 .nav-links{
   display: flex;
@@ -71,13 +74,15 @@ display: none;
   .nav-links{
     position: absolute;
     right: 0;
-    top: 62px;
+    top: 77px;
     background-image: linear-gradient(90deg,#471629 15%,#712744 49%,#471629 85%);
     display: flex;
     flex-direction: column;
     transform: translateX(100%);
     transition: transform 0.4s ease-in;
     z-index: 1;
+    height: 60%;
+    min-height: 60%;
     ;
   }
   
@@ -243,7 +248,7 @@ span{
 
 .footer{
   background-color: #05131e;
-  padding: 20px 40px;
+  padding: 20px 10px;
 }
 .footer-icons{
   text-align: left;
@@ -340,7 +345,7 @@ span{
   padding: 0;
 }
 .sportArticlesAside ul li{
-  padding: 10px 0;
+  padding: 0;
 }
 
 @media(max-width:576px){
@@ -774,18 +779,18 @@ border-bottom: 2px solid grey;
 }
 
 .modal-wrapper{
-  position: absolute;
-  top: 79px;
+  position: fixed;
+ bottom: 0;
   display: flex;
   justify-content: center;
   align-items: center;
   margin: auto;
-  border: 1px solid #05131e;
   background-color: #05131e;
   color: white;
   z-index: 10;
-  width: 80%;
-  padding: 0 10px;
+  width: 100%;
+  max-width: 1200px;
+  
 }
 .modal-button{
   display: flex;
@@ -817,4 +822,62 @@ border-bottom: 2px solid grey;
   padding: 0 10px;
   font-weight: 800;
   color: #471629;
+}
+.container-wrapper{
+  max-width: 1200px;
+  width: 100%;
+}
+
+.sportArticlesAsideNews a{
+  text-decoration: none;
+}
+.sportArticlesAside li{
+  font-size: 14px;
+  padding: 0;
+}
+.sportArticlesAsideNews ul{
+  padding: 0;
+}
+
+.sportArticlesAsideNews li
+{
+  text-align: left;
+  padding: 0;
+
+}
+
+@media(min-width:768px){
+  .health .sportArticlesAside ul{
+    padding: 10px 10px;
+  }
+  .health .sportArticlesAside .weather-item li{
+    text-align: center;
+  }
+  .health .sportArticlesAside li{
+    text-align: left;
+    padding: 0;
+  }
+  .health .sportArticlesAside a{
+    text-decoration: none;
+  }
+}
+.sport .sportArticlesAside ul{
+  padding: 0;
+}
+.sport .sportArticlesAside a{
+  text-decoration: none;
+}
+.sport .sportArticlesAside li{
+  padding: 0;
+  font-size: 14px;
+  text-align: left;
+  padding: 0 0 0 10px;
+}
+
+.App-header{
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.sport .sportArticlesAside .weather-item li{
+  text-align: center;
 }

@@ -4,6 +4,8 @@ import { Link, NavLink } from 'react-router-dom';
 import GetCurrentDate from './utils';
 
 
+
+
 const apiSport = '588a1e43d7ab4b69ac5a1bdcfbbbe85c';
 
 function Nav() {
@@ -31,7 +33,7 @@ function Nav() {
     color: 'while'
   };
   return (
-
+<div className="container-wrapper">
     <nav className="nav">
       <div className="nav-logo">
         <Link className="link-logo" to="/">
@@ -84,6 +86,7 @@ function Nav() {
         <div className="burger line3"></div>
       </div>
     </nav>
+    </div>
 
   );
 

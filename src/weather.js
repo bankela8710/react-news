@@ -13,7 +13,7 @@ function Weather() {
     }, []);
 
     const cityId = [792680];
-    console.log(cityId[0])
+    //console.log(cityId[0])
     const [itemsWeather, setItemsWeather] = useState([]);
 
     let we = "";
@@ -22,12 +22,12 @@ function Weather() {
         const dataWeather = await fetch(`https://api.openweathermap.org/data/2.5/weather?id=${cityId[0]}&appid=001c5a286fb2252c322a7d779e228af4`)
 
         //const dataWeather = await fetch('https://api.openweathermap.org/data/2.5/weather?id=3197622&appid=001c5a286fb2252c322a7d779e228af4');
-        console.log(dataWeather, 'data response');
+       // console.log(dataWeather, 'data response');
         const itemsWeather = await dataWeather.json();
-        console.log(itemsWeather.weather[0].icon, 'weather data response');
+        //console.log(itemsWeather.weather[0].icon, 'weather data response');
         weeee = itemsWeather.weather[0].icon;
         we = `http://openweathermap.org/img/w/${weeee}.png`;
-        console.log(we, 'evo slike');
+       // console.log(we, 'evo slike');
         setItemsWeather(itemsWeather);
     }
 

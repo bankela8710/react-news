@@ -43,14 +43,14 @@ function Entertainment() {
               itemsEntertainment.articles.map((article, index) => {
                 if (index < 3) {
                   return (
-                    <div className="sportArticle">
+                    <div className="sportArticle" key={index}>
                     <Link className="link" to={{ pathname: `/entertainment/${article.title}`, article }}>
                       <WidgetLead imagePath={article?.urlToImage} name={article.source?.name} title={article?.title} />
                     </Link>
                     </div>
                   )
                 } else if (index >= 3 && index < 8) {
-                  console.log('od 4 do 8', article)
+                 // console.log('od 4 do 8', article)
                 }
               }) : ''
           }
@@ -64,7 +64,7 @@ function Entertainment() {
                 itemsEntertainment.articles.map((article, index) => {
                   if (index >= 3 && index < 9) {
                     return (
-                      <Link className="link" to={{ pathname: `/entertainment/${article.title}`, article }}>
+                      <Link key={index} className="link" to={{ pathname: `/entertainment/${article.title}`, article }}>
                         <WidgetLeadSecond imagePath={article?.urlToImage} name={article.source?.name} title={article?.title} />
                       </Link>
                     )
@@ -82,7 +82,7 @@ function Entertainment() {
                 itemsEntertainment.articles?.map((article, index) => {
                   if (index >= 9 && index < 12) {
                     return (
-                      <ul>
+                      <ul key={index}>
                         <Link className="link" to={{ pathname: `/entertainment/${article.title}`, article }}>
                           <WidgetLeadUl title={article?.title} />
                         </Link>
@@ -102,7 +102,7 @@ function Entertainment() {
                 itemsEntertainment.articles.map((article, index) => {
                   if (index >= 12 && index < 14) {
                     return (
-                      <article className="widget-bottom-wrapper">
+                      <article className="widget-bottom-wrapper" key={index}>
                       <Link className="link" to={{ pathname: `/entertainment/${article.title}`, article }}>
                         <WidgetLeadBottom imagePath={article?.urlToImage} name={article.source?.name} title={article?.title} />
                       </Link>
@@ -125,7 +125,7 @@ function Entertainment() {
               itemsEntertainment.articles?.map((article, index) => {
                 if (index >= 14 && index < itemsEntertainment.articles.length) {
                   return (
-                    <Link className="link" to={{ pathname: `/entertainment/${article.title}`, article }}>
+                    <Link key={index} className="link" to={{ pathname: `/entertainment/${article.title}`, article }}>
                       <WidgetLeadAside imagePath={article?.urlToImage} title={article?.title} />
                     </Link>
                   )

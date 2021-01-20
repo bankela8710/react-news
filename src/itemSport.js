@@ -4,11 +4,16 @@ import { FaFacebook, FaTwitter, FaEnvelope } from 'react-icons/fa';
 import {Link} from 'react-router-dom';
 
 import './App.css';
+import Sports from './sports';
 
 function SportItem(props) {
 
     const articleSport = props.location.article;
-    console.log(articleSport, 'this is article');
+   // console.log(articleSport, 'this is article');
+
+   if(articleSport === undefined){
+    return   <Sports />
+   }
     return (
        
         <div className="single-item">

@@ -4,11 +4,15 @@ import { FaFacebook, FaTwitter, FaEnvelope } from 'react-icons/fa';
 import {Link} from 'react-router-dom';
 
 import './App.css';
+import Science from './science';
 
 function ScienceItem(props) {
 
     const article = props.location.article;
-    console.log(article, 'this is article');
+    //console.log(article, 'this is article');
+    if(article === undefined){
+        return   <Science />
+       }
     return (
        
         <div className="single-item">

@@ -43,14 +43,14 @@ function Technology() {
               itemsTechnology.articles.map((article, index) => {
                 if (index < 5) {
                   return (
-                    <div className="sportArticle">
+                    <div className="sportArticle" key={index}>
                       <Link className="link" to={{ pathname: `/technology/${article.title}`, article }} >
                         <WidgetLead imagePath={article?.urlToImage} name={article.source?.name} title={article?.title} />
                       </Link>
                     </div>
                   )
                 } else if (index >= 4 && index < 8) {
-                  console.log('od 4 do 8', article)
+                  //console.log('od 4 do 8', article)
                 }
               }) : ''
           }
@@ -63,7 +63,7 @@ function Technology() {
                   itemsTechnology.articles.map((article, index) => {
                     if (index >= 5 && index < 9) {
                       return (
-                        <Link className="link" to={{ pathname: `/technology/${article.title}`, article }} >
+                        <Link key={index} className="link" to={{ pathname: `/technology/${article.title}`, article }} >
                           <WidgetLeadSecond imagePath={article?.urlToImage} name={article.source?.name} title={article?.title} />
                         </Link>
                       )
@@ -81,7 +81,7 @@ function Technology() {
                   itemsTechnology.articles?.map((article, index) => {
                     if (index >= 9 && index < 12) {
                       return (
-                        <ul>
+                        <ul key={index}>
                           <Link className="link" to={{ pathname: `/technology/${article.title}`, article }}>
                             <WidgetLeadUl title={article?.title} />
                           </Link>
@@ -101,7 +101,7 @@ function Technology() {
                   itemsTechnology.articles.map((article, index) => {
                     if (index >= 12 && index < 14) {
                       return (
-                        <Link className="link" to={{ pathname: `/technology/${article.title}`, article }} >
+                        <Link key={index} className="link" to={{ pathname: `/technology/${article.title}`, article }} >
                           <WidgetLeadSecond imagePath={article?.urlToImage} name={article.source?.name} title={article?.title} />
                         </Link>
                       )
@@ -121,7 +121,7 @@ function Technology() {
               itemsTechnology.articles?.map((article, index) => {
                 if (index >= 14 && index < itemsTechnology.articles.length) {
                   return (
-                    <ul>
+                    <ul key={index}>
                       <Link className="link" to={{ pathname: `/technology/${article.title}`, article }}>
                         <WidgetLeadUl title={article?.title} />
                       </Link>
